@@ -67,6 +67,7 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
+            app.logger.info('Invalid credential')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
@@ -99,6 +100,7 @@ def authorized():
         user = User.query.filter_by(username="admin").first()
         login_user(user)
         _save_cache(cache)
+        app.logger.info('admin logged in successfully')
     return redirect(url_for('home'))
 
 @app.route('/logout')
