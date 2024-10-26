@@ -66,8 +66,8 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
             app.logger.info('Invalid credential')
+            flash('Invalid username or password')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
@@ -98,9 +98,9 @@ def authorized():
         # Note: In a real app, we'd use the 'name' property from session["user"] below
         # Here, we'll use the admin username for anyone who is authenticated by MS
         user = User.query.filter_by(username="admin").first()
+        app.logger.info('admin logged in successfully')
         login_user(user)
         _save_cache(cache)
-        app.logger.info('admin logged in successfully')
     return redirect(url_for('home'))
 
 @app.route('/logout')
