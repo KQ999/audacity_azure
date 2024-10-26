@@ -5,8 +5,8 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or '2AD8Q~XWSlzeF~LP-nyRk59jn4Tsy0MqC~EdRb5f'
 
-    BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'cmsk1'
-    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'LqWiBOOrTDuWf/jC17hku1IEvcNuHz8LAJuUa8HKnzrX2eaNkJJvuuqxC88SGqJ0PRZ/6sHlTmQD+AStNfGmGw=='
+    BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'cmsk1blob'
+    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'hoxFH6hGNBgN0vwjSv+BdyHvx1luCiZJZxufwn44irLTtCPAa4x2nTVF1rUaIWzdt2NXZkrhVvRm+AStW7eXtQ=='
     BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'images'
 
     SQL_SERVER = os.environ.get('SQL_SERVER') or 'cms-k1.database.windows.net'
